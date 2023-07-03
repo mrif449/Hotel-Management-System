@@ -5,6 +5,7 @@ const dotenv = require('dotenv')
 const cookieParser = require('cookie-parser')
 
 //Internal Imports
+const loginRouter = require('./routes/loginRouter')
 
 //Initialize App
 const app = express()
@@ -26,6 +27,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser(process.env.COOKIE_SECRET))
 
 //Routers
+app.use("/login", loginRouter)
 
 //Listen to Server
 const server = app.listen(process.env.PORT, () => {
