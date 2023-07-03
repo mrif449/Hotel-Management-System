@@ -4,7 +4,8 @@
   "description": "CSE470 group project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-start": "nodemon index.js"
   },
   "author": "Sec6_Group2",
   "license": "ISC",
