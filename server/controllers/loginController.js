@@ -115,9 +115,43 @@ const register = async (req, res, next) => {
     };
 };
 
+// activate user account
+const activateUserAccount = async (req, res, next) => {
+    try {
+        const token = req.body.token;
+        if (!token) throw createError(404, "Token not found");
+        try {
+            const decoded = jwt.verify(token, jwtActivationKey);
+            if (!token) throw createError(401, "User is not able to verify");
+            const userExists = await User.exists({ email: decoded.email });
+            if (userExists) {
+                throw createError(
+                    409, "User is already registered. Please sign in"
+                );
+            }
+            await User.create(decoded);
+            return successResponse(res, {
+                statusCode: 201,
+                message: `User is registered successfully`,
+            })
+        } catch (error) {
+            if (error.name === "TokenExpiredError") {
+                throw createError(401, "Token has exprired")
+            } else if (error.name === "JsonWebTokenError") {
+                throw createError(401, "Invalid token")
+            } else {
+                throw error;
+            }
+        }
+    } catch (error) {
+        next(error);
+    };
+};
+
 module.exports = {
     getLoginPage,
     login,
     logout, 
-    register
+    register,
+    activateUserAccount
 }
