@@ -2,7 +2,7 @@
 const express = require('express')
 
 //Internal Imports
-const {getLoginPage, login, logout} = require('../controllers/loginController')
+const {getLoginPage, login, logout, register} = require('../controllers/loginController')
 const {logInValidators, validationResultHandler} = require('../middlewares/login/loginValidator')
 
 //Initialize Router
@@ -16,5 +16,8 @@ router.post('/', logInValidators, validationResultHandler, login)
 
 //Logout
 router.delete('/', logout)
+
+// Register
+router.get("/register",register)
 
 module.exports = router
