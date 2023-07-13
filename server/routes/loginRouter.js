@@ -2,7 +2,7 @@
 const express = require('express')
 
 //Internal Imports
-const {getLoginPage, login, logout, register, activateUserAccount} = require('../controllers/loginController')
+const {getLoginPage, login, logout, register, activateUserAccount, getUsers} = require('../controllers/loginController')
 const {logInValidators, validationResultHandler} = require('../middlewares/login/loginValidator')
 
 //Initialize Router
@@ -22,5 +22,8 @@ router.get("/register",register);
 
 // activate user account
 router.post("/activate", activateUserAccount);
+
+// get all users
+router.get("/users", getUsers);
 
 module.exports = router
