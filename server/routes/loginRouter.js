@@ -17,4 +17,16 @@ router.post('/', logInValidators, validationResultHandler, login)
 //Logout
 router.delete('/', logout)
 
+//delete user by ID
+userRouter.delete("/:id", isLoggedIn, deleteUserById);
+
+//activate user account
+userRouter.post("/activate", isLoggedOut, activateUserAccount);
+
+//ban user by id
+userRouter.put("/ban-user/:id", isLoggedIn, isAdmin, handleBanUserById);
+
+//unban user by id
+userRouter.put("/unban-user/:id", isLoggedIn, isAdmin, handleUnbanUserById);
+
 module.exports = router
