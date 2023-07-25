@@ -1,1 +1,0 @@
-//TODO: Common helper component for Swiper

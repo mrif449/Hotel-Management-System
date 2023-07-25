@@ -5,6 +5,46 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
 
 const HomeComponent = () => {
+
+  const slides = [
+    {
+      image: "images/home-img-1.jpg",
+      title: "luxurious rooms",
+      link: "#availability",
+      buttonText: "check availability",
+    },
+    {
+      image: "images/home-img-2.jpg",
+      title: "foods and drinks",
+      link: "#reservation",
+      buttonText: "make a reservation",
+    },
+    {
+      image: "images/home-img-3.jpg",
+      title: "luxurious halls",
+      link: "#contact",
+      buttonText: "contact us",
+    },
+    // Add more slides if needed
+  ];
+
+  // Render slides using map() method
+  const renderSlides = () => {
+    return slides.map((slide, index) => (
+      <SwiperSlide key={index}>
+        <div className="box swiper-slide">
+          <img src={slide.image} alt="" />
+          <div className="flex">
+            <h3>{slide.title}</h3>
+            <a href={slide.link} className="btn">
+              {slide.buttonText}
+            </a>
+          </div>
+        </div>
+      </SwiperSlide>
+    ));
+  }
+
   return (
     <section className="home" id="home">
       <div className="swiper home-slider">
@@ -20,39 +60,7 @@ const HomeComponent = () => {
             onSlideChange={() => console.log("slide change")}
             effect={"coverflow"}
           >
-            <SwiperSlide>
-              <div className="box swiper-slide">
-                <img src="images/home-img-1.jpg" alt="" />
-                <div className="flex">
-                  <h3>luxurious rooms</h3>
-                  <a href="#availability" className="btn">
-                    check availability
-                  </a>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="box swiper-slide">
-                <img src="images/home-img-2.jpg" alt="" />
-                <div className="flex">
-                  <h3>foods and drinks</h3>
-                  <a href="#reservation" className="btn">
-                    make a reservation
-                  </a>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="box swiper-slide">
-                <img src="images/home-img-3.jpg" alt="" />
-                <div className="flex">
-                  <h3>luxurious halls</h3>
-                  <a href="#contact" className="btn">
-                    contact us
-                  </a>
-                </div>
-              </div>
-            </SwiperSlide>
+            {renderSlides()}
           </Swiper>
         </div>
       </div>
