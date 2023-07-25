@@ -51,6 +51,8 @@ const HomeComponent = () => {
         <div className="swiper-wrapper">
           <Swiper
             modules={[Navigation, EffectCoverflow, Pagination, Scrollbar, A11y]}
+            loop={true}
+            grabCursor={true}
             spaceBetween={50}
             slidesPerView={1}
             navigation
