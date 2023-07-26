@@ -3,6 +3,37 @@ const express = require('express')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const cookieParser = require('cookie-parser')
+const cors = require('cors');
+const Guest = require('./models/guest');
+
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
+
+// Create a new guest
+app.post('/api/guests', (req, res) => {
+    const { name, address, email, phoneNumber, reservationDate } = req.body;
+    const newGuest = new Guest({ name, address, email, phoneNumber, reservationDate });
+  
+    newGuest.save()
+      .then((guest) => {
+        res.json(guest);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: 'Failed to create guest.' });
+      });
+  });
+
+  // Get all guests
+app.get('/api/guests', (req, res) => {
+    Guest.find()
+      .then((guests) => {
+        res.json(guests);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: 'Failed to fetch guests.' });
+      });
+  });
 
 //Internal Imports
 const loginRouter = require('./routes/loginRouter')
