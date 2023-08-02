@@ -5,6 +5,7 @@ import ServicesComponent from "./home-page/services";
 import GalleryComponent from "./home-page/gallery";
 import FeedbackComponent from "./home-page/feedback";
 import ReservationComponent from "./home-page/reservation";
+import FeedbackFormComponent from "./home-page/feedbackForm";
 
 const Body = () => {
     return (
@@ -15,6 +16,7 @@ const Body = () => {
             <ReservationComponent />
             <GalleryComponent />
             <FeedbackComponent />
+            <FeedbackFormComponent />
         </div>
     );
 }

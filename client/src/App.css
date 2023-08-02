@@ -337,14 +337,14 @@ section{
    background-color: var(--white);
 }
 
-.contact .row{
+.feedbackForm .row{
    display: flex;
    align-items: flex-start;
    gap: 3rem;
    flex-wrap: wrap;
 }
 
-.contact .row form{
+.feedbackForm .row form{
    flex: 1 1 40rem;
    border: var(--border);
    border-radius: .5rem;
@@ -352,11 +352,11 @@ section{
    text-align: center;
 }
 
-.contact .row .faq{
+.feedbackForm .row .faq{
    flex: 1 1 40rem;
 }
 
-.contact .row form h3{
+.feedbackForm .row form h3{
    margin-bottom: 1rem;
    border-radius: .5rem;
    padding: 1.2rem;
@@ -366,7 +366,7 @@ section{
    text-transform: capitalize;
 }
 
-.contact .row form .box{
+.feedbackForm .row form .box{
    padding: 1rem 0;
    margin: 1rem 0;
    border-bottom: var(--border);
@@ -376,16 +376,16 @@ section{
    width: 100%;
 }
 
-.contact .row form .box::placeholder{
+.feedbackForm .row form .box::placeholder{
    color: rgba(220, 198, 156, .6);
 }
 
-.contact .row form textarea{
+.feedbackForm .row form textarea{
    height: 15rem;
    resize: none;
 }
 
-.contact .row .faq .title{
+.feedbackForm .row .faq .title{
    padding-bottom: .5rem;
    font-size: 2.5rem;
    color: var(--sub-color);
@@ -393,13 +393,13 @@ section{
    text-align: center;
 }
 
-.contact .row .faq .box{
+.feedbackForm .row .faq .box{
    border-radius: .5rem;
    border: var(--border);
    margin-top: 2rem;
 }
 
-.contact .row .faq .box h3{
+.feedbackForm .row .faq .box h3{
    background-color: var(--sub-color);
    color: var(--main-color);
    padding: 1.5rem;
@@ -408,7 +408,7 @@ section{
    cursor: pointer;
 }
 
-.contact .row .faq .box p{
+.feedbackForm .row .faq .box p{
    padding:1.5rem 2rem;
    line-height: 2;
    font-size: 1.6rem;
@@ -416,7 +416,7 @@ section{
    display: none;
 }
 
-.contact .row .faq .box.active p{
+.feedbackForm .row .faq .box.active p{
    display: inline-block;
 }
 
