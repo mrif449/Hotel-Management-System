@@ -7,7 +7,7 @@ const Header = () => {
 
             <div className="flex">
                 <a href="#home" className="logo">Hotel Sea Marmite</a>
-                <a href="#availability" className="btn">check availability</a>
+                <a href="#login" className="btn">Login</a>
                 <div id="menu-btn" className="fas fa-bars"></div>
             </div>
 

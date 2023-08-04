@@ -1,57 +1,59 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
 
-:root{
-   --main-color:#2B1103;
-   --sub-color:#DCC69C;
-   --white:#fff;
-   --border:.1rem solid rgba(220, 198, 156, .3);
+:root {
+   --main-color: #2B1103;
+   --sub-color: #DCC69C;
+   --white: #fff;
+   --border: .1rem solid rgba(220, 198, 156, .3);
 }
 
-*{
+* {
    font-family: 'Montserrat', sans-serif;
-   margin: 0; padding: 0;
+   margin: 0;
+   padding: 0;
    box-sizing: border-box;
-   outline: none; border: none;
+   outline: none;
+   border: none;
    text-decoration: none;
 }
 
-*::selection{
+*::selection {
    background-color: var(--sub-color);
    color: var(--main-color);
 }
 
-*::-webkit-scrollbar{
+*::-webkit-scrollbar {
    height: .5rem;
    width: 1rem;
 }
 
-*::-webkit-scrollbar-track{
+*::-webkit-scrollbar-track {
    background-color: transparent;
 }
 
-*::-webkit-scrollbar-thumb{
+*::-webkit-scrollbar-thumb {
    background-color: var(--sub-color);
    border-radius: 5rem;
 }
 
-html{
+html {
    font-size: 62.5%;
    overflow-x: hidden;
    scroll-behavior: smooth;
    scroll-padding-top: 2rem;
 }
 
-body{
+body {
    background-color: var(--main-color);
 }
 
-section{
+section {
    padding: 3rem 2rem;
    max-width: 1200px;
    margin: 0 auto;
 }
 
-.btn{
+.btn {
    display: inline-block;
    cursor: pointer;
    padding: 1rem 3rem;
@@ -65,40 +67,40 @@ section{
    background-color: var(--main-color);
 }
 
-.btn:hover{
+.btn:hover {
    border-radius: 5rem;
    background-color: var(--sub-color);
    color: var(--main-color);
 }
 
-.header{
+.header {
    padding-bottom: 0;
 }
 
-.header .flex{
+.header .flex {
    display: flex;
    align-items: center;
    justify-content: space-between;
    gap: 1.5rem;
 }
 
-.header .flex .logo{
+.header .flex .logo {
    color: var(--sub-color);
    font-size: 2.5rem;
 }
 
-.header .flex .btn{
+.header .flex .btn {
    margin-top: 0;
 }
 
-.header .flex .fa-bars{
+.header .flex .fa-bars {
    font-size: 3rem;
    cursor: pointer;
    color: var(--sub-color);
    display: none;
 }
 
-.header .navbar{
+.header .navbar {
    display: flex;
    align-items: center;
    justify-content: space-evenly;
@@ -109,26 +111,26 @@ section{
    border-radius: .5rem;
 }
 
-.header .navbar a{
+.header .navbar a {
    font-size: 1.8rem;
    color: var(--main-color);
    padding: 1rem 3rem;
    border-radius: .5rem;
 }
 
-.header .navbar a:hover{
+.header .navbar a:hover {
    background-color: var(--main-color);
    color: var(--sub-color);
 }
 
-.home .box img{
+.home .box img {
    border-radius: .5rem;
    height: 60vh;
    width: 100%;
    object-fit: cover;
 }
 
-.home .box .flex{
+.home .box .flex {
    display: flex;
    align-items: center;
    justify-content: space-between;
@@ -137,22 +139,22 @@ section{
    margin-top: 1.5rem;
 }
 
-.home .box .flex h3{
+.home .box .flex h3 {
    font-size: 2.5rem;
    color: var(--sub-color);
    text-transform: capitalize;
 }
 
-.swiper-button-prev{
+.swiper-button-prev {
    left: 0%;
 }
 
-.swiper-button-next{
+.swiper-button-next {
    right: 0;
 }
 
 .swiper-button-next,
-.swiper-button-prev{
+.swiper-button-prev {
    padding: 3rem 2rem;
    background-color: var(--white);
    top: 40%;
@@ -160,32 +162,32 @@ section{
 }
 
 .swiper-button-next::after,
-.swiper-button-prev::after{
+.swiper-button-prev::after {
    color: var(--main-color);
    font-size: 2rem;
 }
 
 .swiper-button-next:hover,
-.swiper-button-prev:hover{
+.swiper-button-prev:hover {
    opacity: 1;
 }
 
-.availability form .flex{
+.availability form .flex {
    display: flex;
    flex-wrap: wrap;
    gap: 1.5rem;
 }
 
-.availability form .flex .box{
+.availability form .flex .box {
    flex: 1 1 20rem;
 }
 
-.availability form .flex .box p{
+.availability form .flex .box p {
    font-size: 2rem;
    color: var(--sub-color);
 }
 
-.availability form .flex .box .input{
+.availability form .flex .box .input {
    width: 100%;
    padding: 1rem 0;
    font-size: 1.8rem;
@@ -195,11 +197,11 @@ section{
    margin: 1rem 0;
 }
 
-.availability form .flex .box input[type="date"]::-webkit-calendar-picker-indicator{
+.availability form .flex .box input[type="date"]::-webkit-calendar-picker-indicator {
    filter: invert(1);
 }
 
-.about .row{
+.about .row {
    display: flex;
    flex-wrap: wrap;
    gap: 1.5rem;
@@ -207,40 +209,40 @@ section{
    align-items: center;
 }
 
-.about .row .image{
+.about .row .image {
    flex: 1 1 40rem;
 }
 
-.about .row .image img{
+.about .row .image img {
    width: 40rem;
    border-radius: .5rem;
 }
 
-.about .row .content{
-   flex:1 1 40rem;
+.about .row .content {
+   flex: 1 1 40rem;
 }
 
-.about .row .content h3{
+.about .row .content h3 {
    font-size: 3rem;
    color: var(--sub-color);
    text-transform: capitalize;
    margin-bottom: 1rem;
 }
 
-.about .row .content p{
+.about .row .content p {
    line-height: 2;
    padding: 1rem 0;
    font-size: 1.7rem;
    color: var(--sub-color);
 }
 
-.about .row.revers{
+.about .row.revers {
    flex-flow: row-reverse;
    margin: 3rem 0;
    flex-wrap: wrap;
 }
 
-.services .box-container{
+.services .box-container {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
    gap: 1.5rem;
@@ -248,41 +250,41 @@ section{
    align-items: flex-start;
 }
 
-.services .box-container .box{
+.services .box-container .box {
    padding: 2rem;
    text-align: center;
 }
 
-.services .box-container .box img{
+.services .box-container .box img {
    height: 7rem;
    margin-bottom: 1rem;
 }
 
-.services .box-container .box h3{
+.services .box-container .box h3 {
    font-size: 2rem;
    color: var(--sub-color);
    text-transform: capitalize;
    margin: 1rem 0;
 }
 
-.services .box-container .box p{
+.services .box-container .box p {
    line-height: 2;
    font-size: 1.5rem;
-   color:var(--sub-color);
+   color: var(--sub-color);
 }
 
-.reservation form{
+.reservation form {
    border: var(--border);
    padding: 2rem;
 }
 
-.reservation form .flex{
+.reservation form .flex {
    display: flex;
    flex-wrap: wrap;
    gap: 1.5rem;
 }
 
-.reservation form h3{
+.reservation form h3 {
    background-color: var(--sub-color);
    color: var(--main-color);
    font-size: 2.5rem;
@@ -293,16 +295,16 @@ section{
    text-transform: capitalize;
 }
 
-.reservation form .flex .box{
+.reservation form .flex .box {
    flex: 1 1 40rem;
 }
 
-.reservation form .flex .box p{
+.reservation form .flex .box p {
    font-size: 1.8rem;
    color: var(--sub-color);
 }
 
-.reservation form .flex .box .input{
+.reservation form .flex .box .input {
    padding: 1rem 0;
    margin: 1rem 0;
    border-bottom: var(--border);
@@ -312,11 +314,11 @@ section{
    width: 100%;
 }
 
-.reservation form .flex .box input[type="date"]::-webkit-calendar-picker-indicator{
+.reservation form .flex .box input[type="date"]::-webkit-calendar-picker-indicator {
    filter: invert(1);
 }
 
-.gallery img{
+.gallery img {
    height: 40rem;
    width: 60rem;
    border-radius: .5rem;
@@ -325,26 +327,26 @@ section{
    user-select: none;
 }
 
-.swiper-pagination-bullets.swiper-pagination-horizontal{
+.swiper-pagination-bullets.swiper-pagination-horizontal {
    bottom: 0;
 }
 
-.swiper-pagination-bullet{
+.swiper-pagination-bullet {
    background-color: var(--sub-color);
 }
 
-.swiper-pagination-bullet-active{
+.swiper-pagination-bullet-active {
    background-color: var(--white);
 }
 
-.feedbackForm .row{
+.feedbackForm .row {
    display: flex;
    align-items: flex-start;
    gap: 3rem;
    flex-wrap: wrap;
 }
 
-.feedbackForm .row form{
+.feedbackForm .row form {
    flex: 1 1 40rem;
    border: var(--border);
    border-radius: .5rem;
@@ -352,11 +354,11 @@ section{
    text-align: center;
 }
 
-.feedbackForm .row .faq{
+.feedbackForm .row .faq {
    flex: 1 1 40rem;
 }
 
-.feedbackForm .row form h3{
+.feedbackForm .row form h3 {
    margin-bottom: 1rem;
    border-radius: .5rem;
    padding: 1.2rem;
@@ -366,26 +368,26 @@ section{
    text-transform: capitalize;
 }
 
-.feedbackForm .row form .box{
+.feedbackForm .row form .box {
    padding: 1rem 0;
    margin: 1rem 0;
    border-bottom: var(--border);
    font-size: 1.8rem;
    color: var(--sub-color);
-   background:var(--main-color);
+   background: var(--main-color);
    width: 100%;
 }
 
-.feedbackForm .row form .box::placeholder{
+.feedbackForm .row form .box::placeholder {
    color: rgba(220, 198, 156, .6);
 }
 
-.feedbackForm .row form textarea{
+.feedbackForm .row form textarea {
    height: 15rem;
    resize: none;
 }
 
-.feedbackForm .row .faq .title{
+.feedbackForm .row .faq .title {
    padding-bottom: .5rem;
    font-size: 2.5rem;
    color: var(--sub-color);
@@ -393,13 +395,13 @@ section{
    text-align: center;
 }
 
-.feedbackForm .row .faq .box{
+.feedbackForm .row .faq .box {
    border-radius: .5rem;
    border: var(--border);
    margin-top: 2rem;
 }
 
-.feedbackForm .row .faq .box h3{
+.feedbackForm .row .faq .box h3 {
    background-color: var(--sub-color);
    color: var(--main-color);
    padding: 1.5rem;
@@ -408,49 +410,104 @@ section{
    cursor: pointer;
 }
 
-.feedbackForm .row .faq .box p{
-   padding:1.5rem 2rem;
+.feedbackForm .row .faq .box p {
+   padding: 1.5rem 2rem;
    line-height: 2;
    font-size: 1.6rem;
    color: var(--sub-color);
    display: none;
 }
 
-.feedbackForm .row .faq .box.active p{
+.feedbackForm .row .faq .box.active p {
    display: inline-block;
 }
 
-.reviews{
+.reviews {
    padding-top: 0;
 }
 
-.reviews .box{
+.reviews .box {
    text-align: center;
    user-select: none;
    padding: 2rem;
    margin-bottom: 4rem;
 }
 
-.reviews .box img{
+.reviews .box img {
    height: 7rem;
    width: 7rem;
    border-radius: 50%;
    object-fit: cover;
 }
 
-.reviews .box h3{
+.reviews .box h3 {
    margin: 1.5rem 0;
    font-size: 2rem;
    color: var(--sub-color);
 }
 
-.reviews .box p{
+.reviews .box p {
    line-height: 2;
    font-size: 1.5rem;
    color: var(--sub-color);
 }
 
-.footer .box-container{
+.login-container {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 1.5rem;
+}
+
+.login-container h3{
+   margin-bottom: 1rem;
+   border-radius: .5rem;
+   padding: 1.2rem;
+   color: var(--main-color);
+   background-color: var(--sub-color);
+   font-size: 2.2rem;
+   text-align: center;
+   text-transform: capitalize;
+}
+
+.login-container input{
+   width: 100%;
+   padding: 1rem 0;
+   font-size: 1.8rem;
+   background-color: var(--main-color);
+   color: var(--white);
+   border-bottom: var(--border);
+   margin: 1rem 0;
+}
+
+.login-container input::placeholder{
+   padding-left: 5px;
+   color: rgba(220, 198, 156, .6);
+}
+
+.login-form {
+   border: var(--border);
+   padding: 2rem;
+}
+
+.form-group {
+   margin-bottom: 15px;
+}
+
+.login-container label {
+   font-size: 1.8rem;
+   padding-right: 10px;
+   color: var(--sub-color);
+}
+
+.form-control {
+   padding: 8px;
+   border: 1px solid #ccc;
+   border-radius: 3px;
+   outline: none;
+}
+
+.footer .box-container {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
    gap: 1.5rem;
@@ -459,34 +516,34 @@ section{
    padding-bottom: 3rem;
 }
 
-.footer .box-container .box a{
+.footer .box-container .box a {
    display: block;
    font-size: 1.8rem;
    color: var(--sub-color);
    padding: 1rem 0;
 }
 
-.footer .box-container .box a:hover{
+.footer .box-container .box a:hover {
    color: var(--white);
 }
 
-.footer .box-container .box:first-child i{
+.footer .box-container .box:first-child i {
    margin-right: 1.7rem;
 }
 
-.footer .box-container .box:nth-child(2){
+.footer .box-container .box:nth-child(2) {
    text-align: center;
 }
 
-.footer .box-container .box:last-child{
-   text-align:right;
+.footer .box-container .box:last-child {
+   text-align: right;
 }
 
-.footer .box-container .box:last-child i{
+.footer .box-container .box:last-child i {
    margin-left: 1.7rem;
 }
 
-.footer .credit{
+.footer .credit {
    border-radius: .5rem;
    padding: 2rem;
    text-align: center;
@@ -498,64 +555,64 @@ section{
 
 /* media queries  */
 
-@media (max-width:991px){
+@media (max-width:991px) {
 
-   html{
+   html {
       font-size: 55%;
    }
 
-   .header .flex .fa-bars{
+   .header .flex .fa-bars {
       display: inline-block;
    }
 
-   .header .flex .btn{
+   .header .flex .btn {
       display: none;
    }
 
-   .header .navbar{
+   .header .navbar {
       flex-flow: column;
       padding: 2rem;
       display: none;
    }
 
-   .header .navbar.active{
+   .header .navbar.active {
       display: flex;
    }
 
 }
 
-@media (max-width:768px){
+@media (max-width:768px) {
 
-   .home .box img{
+   .home .box img {
       height: 40vh;
    }
 
    .swiper-button-next,
-   .swiper-button-prev{
+   .swiper-button-prev {
       top: 35%;
    }
 
 }
 
-@media (max-width:450px){
+@media (max-width:450px) {
 
-   html{
+   html {
       font-size: 50%;
    }
 
-   .header .flex .logo{
+   .header .flex .logo {
       font-size: 2rem;
    }
 
-   .home .box img{
+   .home .box img {
       height: 25rem;
    }
 
-   .about .row .image img{
+   .about .row .image img {
       width: 100%;
    }
 
-   .gallery img{
+   .gallery img {
       height: 25rem;
       width: 30rem;
    }

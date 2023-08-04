@@ -6,6 +6,7 @@ import GalleryComponent from "./home-page/gallery";
 import FeedbackComponent from "./home-page/feedback";
 import ReservationComponent from "./home-page/reservation";
 import FeedbackFormComponent from "./home-page/feedbackForm";
+import Login from "./authentication-page/login";
 
 const Body = () => {
     return (
@@ -17,6 +18,7 @@ const Body = () => {
             <GalleryComponent />
             <FeedbackComponent />
             <FeedbackFormComponent />
+            <Login />
         </div>
     );
 }
