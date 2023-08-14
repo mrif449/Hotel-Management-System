@@ -32,31 +32,22 @@ const UserSchema = new mongoose.Schema({
 const User = mongoose.model('User', UserSchema);
 
 // Guest Model
-const GuestSchema = new mongoose.Schema({
-    user_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    },
-    full_name: { 
-        type: String, 
-        required: true 
-    },
-    NID_number: { 
-        type: String, 
-        required: true 
-    },
-    phone_number: { 
-        type: String, 
-        required: true 
-    },
-    guest_type: { 
-        type: String, 
-        enum: ['Regular', 'Premium'], 
-        required: true 
-    },
-});
+const guestSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    address: { type: String, required: true },
+    email: { type: String, required: true },
+    phoneNumber: { type: String, required: true },
+    reservationDate: { type: Date, required: true },
+    dateOfBirth: {type: Date, required: true},
+    gender: {type: String, required: true},
+    idNumber: {type: Number, required: true},
+    cardNumber: {type: Number, required: true},
+    nationality: {type: Number, required: true},
+    emergencyContact: {type: Number, required: true},
+    purpose: {type: String, required: false},
+  });
 
-const Guest = mongoose.model('Guest', GuestSchema);
+const Guest = mongoose.model('Guest', guestSchema);
 
 // Staff Model
 const StaffSchema = new mongoose.Schema({
