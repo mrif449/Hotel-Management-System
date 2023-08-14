@@ -1,10 +1,15 @@
 import React from "react";
 
+const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add your logic to handle form submission here
+}
+
 const Login = () => {
     return (
         <section className="login" id="login">
             <div className="login-container">
-                <form className="login-form">
+                <form className="login-form" onSubmit={handleSubmit}>
                     <h3>Login</h3>
                     <div className="form-group">
                         <label htmlFor="username">Username</label>
@@ -14,10 +19,7 @@ const Login = () => {
                         <label htmlFor="password">Password</label>
                         <input type="password" id="password" className="form-control" placeholder="Enter your password" />
                     </div>
-                    <button className="btn" style={{ marginRight: "10px" }} >Submit</button>
-                    <button className="btn">
-                        Sign In <i>if you don't have an account</i>
-                    </button>
+                    <button className="btn">Submit</button>
                 </form>
             </div>
         </section>

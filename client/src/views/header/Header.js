@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Nav from "./Nav";
 
 const Header = () => {
@@ -6,8 +7,9 @@ const Header = () => {
         <section className="header">
 
             <div className="flex">
-                <a href="#home" className="logo">Hotel Sea Marmite</a>
-                <a href="#login" className="btn">Login</a>
+                <Link to="/" className="btn">Hotel Sea Marmite</Link>
+                <Link to="/login" className="btn" style={{marginLeft : "10px;"}}>Login</Link>
+                <Link to="/signup" className="btn">Sign Up</Link>
                 <div id="menu-btn" className="fas fa-bars"></div>
             </div>
 

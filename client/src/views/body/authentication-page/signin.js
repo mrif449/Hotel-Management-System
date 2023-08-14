@@ -1,10 +1,15 @@
 import React from "react";
 
+const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add your logic to handle form submission here
+}
+
 const SignIn = () => {
     return (
         <section className="login" id="login">
             <div className="login-container">
-                <form className="login-form">
+                <form className="login-form" onSubmit={handleSubmit}>
                     <h3>SignIn</h3>
                     <div className="form-group">
                         <label htmlFor="username">Username</label>
