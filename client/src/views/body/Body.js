@@ -7,6 +7,7 @@ import FeedbackComponent from "./home-page/feedback";
 import ReservationComponent from "./home-page/reservation";
 import FeedbackFormComponent from "./home-page/feedbackForm";
 import Login from "./authentication-page/login";
+import SignIn from "./authentication-page/signin";
 
 const Body = () => {
     return (
@@ -19,6 +20,7 @@ const Body = () => {
             <FeedbackComponent />
             <FeedbackFormComponent />
             <Login />
+            <SignIn />
         </div>
     );
 }
