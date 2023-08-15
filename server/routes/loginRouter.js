@@ -3,7 +3,7 @@ const express = require('express')
 const Reservation = require('../models/model');
 
 //Internal Imports
-const {getLoginPage, login, logout} = require('../controllers/loginController')
+const {getLoginPage, login, logout, register, activateUserAccount, getUsers} = require('../controllers/loginController')
 const {logInValidators, validationResultHandler} = require('../middlewares/login/loginValidator')
 
 //Initialize Router
@@ -18,11 +18,33 @@ router.post('/', logInValidators, validationResultHandler, login)
 //Logout
 router.delete('/', logout)
 
+// Register
+router.get("/register",register);
+
+// activate user account
+router.post("/activate", activateUserAccount);
+
+// get all users
+router.get("/users", getUsers);
+
+//delete user by ID
+userRouter.delete("/:id", isLoggedIn, deleteUserById);
+
+//activate user account
+userRouter.post("/activate", isLoggedOut, activateUserAccount);
+
+//ban user by id
+userRouter.put("/ban-user/:id", isLoggedIn, isAdmin, handleBanUserById);
+
+//unban user by id
+userRouter.put("/unban-user/:id", isLoggedIn, isAdmin, handleUnbanUserById);
+
+
 
 // Create a new reservation
 router.post('/create', async (req, res) => {
     try {
-      const { guestName, roomType, checkInDate, checkOutDate } = req.body;
+      const { guestName, room_id, start_datetime, end_datetime } = req.body;
       const reservation = new Reservation({
         guestName,
         room_id,
@@ -46,4 +68,4 @@ router.post('/create', async (req, res) => {
     }
   });
 
-module.exports = router
+module.exports = router;
