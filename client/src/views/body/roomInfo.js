@@ -4,7 +4,7 @@ const RoomInfo = () => {
     return (
         <div className="room-info-container">
             <div className="room-image">
-            <img src="images/gallery-img-2.webp" alt="image" />
+            <img src="images/gallery-img-2.webp" alt="room" />
             </div>
             <div className="room-details">
                 <h2 className="room-name">Deluxe Room</h2>
