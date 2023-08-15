@@ -877,3 +877,52 @@ section {
    background-color: var(--sub-color);
    color: var(--main-color);
 }
+
+/* Styles for Admin Panel */
+
+.admin-panel {
+   padding: 3rem 2rem;
+   text-align: center;
+   background-color: var(--main-color);
+   color: var(--white);
+ }
+ 
+ .page-heading {
+   font-size: 2.5rem;
+   margin-bottom: 2rem;
+ }
+ 
+ .table-container {
+   margin-top: 2rem;
+ }
+ 
+ .table-heading {
+   font-size: 2rem;
+   color: var(--sub-color);
+   margin-bottom: 1rem;
+ }
+ 
+ .data-table {
+   width: 100%;
+   border-collapse: collapse;
+   background-color: var(--white);
+   border: var(--border);
+   border-radius: 0.5rem;
+ }
+ 
+ .data-table th,
+ .data-table td {
+   padding: 1rem;
+   border-bottom: var(--border);
+ }
+ 
+ .data-table th {
+   font-size: 1.8rem;
+   color: var(--sub-color);
+ }
+ 
+ .data-table td {
+   font-size: 1.6rem;
+   color: var(--main-color);
+ }
+ 
