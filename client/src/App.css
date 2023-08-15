@@ -736,11 +736,12 @@ section {
    display: flex;
    justify-content: space-between;
    padding: 20px;
+   margin-bottom: 300px;
 }
 
 .room-image {
    flex: 1;
-   height: 400px; 
+   height: 200px; 
    background-color: var(--sub-color);
    background-size: cover;
    background-position: center;
