@@ -42,7 +42,7 @@ userRouter.put("/unban-user/:id", isLoggedIn, isAdmin, handleUnbanUserById);
 
 
 // Create a new reservation
-router.post('/create', async (req, res) => {
+router.post('/reservation', async (req, res) => {
     try {
       const { guestName, room_id, start_datetime, end_datetime } = req.body;
       const reservation = new Reservation({
@@ -59,12 +59,38 @@ router.post('/create', async (req, res) => {
   });
   
   // Fetch all reservations
-  router.get('/list', async (req, res) => {
+  router.get('/reservation-list', async (req, res) => {
     try {
       const reservations = await Reservation.find();
       res.status(200).json(reservations);
     } catch (error) {
       res.status(500).json({ error: 'An error occurred while fetching reservations.' });
+    }
+  });
+
+// Create a new feedback
+router.post('/feedback', async (req, res) => {
+    try {
+      const { user_id, feedback, datetime } = req.body;
+      const message = new Feedback({
+        user_id,
+        feedback,
+        datetime,
+      });
+      await message.save();
+      res.status(201).json({ message: 'Feedback created successfully.' });
+    } catch (error) {
+      res.status(500).json({ error: 'An error occurred while creating the feedback.' });
+    }
+  });
+  
+  // Fetch all feedbacks
+  router.get('/feedback-list', async (req, res) => {
+    try {
+      const feedbacks = await Feedback.find();
+      res.status(200).json(feedbacks);
+    } catch (error) {
+      res.status(500).json({ error: 'An error occurred while fetching feedbacks.' });
     }
   });
 
