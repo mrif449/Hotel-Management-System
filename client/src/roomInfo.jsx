@@ -1,57 +1,25 @@
-import React from "react";
+import React from 'react';
 
-export default function RoomInfo() {
-  const roomData = {
-    roomNumber: "101",
-    type: "Deluxe Double",
-    price: "$150",
-    features: [
-      "King-size bed",
-      "Balcony",
-      "Mini-fridge",
-      "TV",
-      "Air conditioning",
-    ],
-    facility: ["Free Wi-Fi", "Room service", "Free breakfast"],
-    images: ["home-img-1.jpg"],
-  };
+const RoomInfo = () => {
+    return (
+        <div className="room-info-container">
+            <div className="room-image">
+            <img src="images/gallery-img-2.webp" alt="image" />
+            </div>
+            <div className="room-details">
+                <h2 className="room-name">Deluxe Room</h2>
+                <p className="room-price">$200 per night</p>
+                <p className="room-description">Spacious and luxurious room with a beautiful view.</p>
+                <h3 className="section-title">Facilities</h3>
+                <ul className="facilities-list">
+                    <li>Free Wi-Fi</li>
+                    <li>Air Conditioning</li>
+                    <li>Mini Bar</li>
+                </ul>
+                <button className="btn book-btn">Book Now</button>
+            </div>
+        </div>
+    );
+};
 
-  return (
-    <>
-      <div>
-        <div>
-          <h1>Room {roomData.roomNumber}</h1>
-          <p>Type: {roomData.type}</p>
-          <p>Price: {roomData.price} per night</p>
-        </div>
-        <div>
-          <h2>Specifications</h2>
-          <div>
-            <h3>Features:</h3>
-            <ul>
-              {roomData.features.map((feature, index) => (
-                <li key={index}>{feature}</li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3>Facility:</h3>
-            <ul>
-              {roomData.facility.map((facility, index) => (
-                <li key={index}>{facility}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div>
-          <h2>Room Gallery</h2>
-          <div>
-            {roomData.images.map((image, index) => (
-              <img key={index} src={image} alt={`Room ${index + 1}`} />
-            ))}
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
+export default RoomInfo;
