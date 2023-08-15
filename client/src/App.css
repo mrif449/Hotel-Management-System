@@ -729,5 +729,76 @@ section {
    font-size: 14px;
    margin-top: 5px;
  }
+
+/* Room Info page styles */
+
+.room-info-container {
+   display: flex;
+   justify-content: space-between;
+   padding: 20px;
+}
+
+.room-image {
+   flex: 1;
+   height: 400px; 
+   background-color: var(--sub-color);
+   background-size: cover;
+   background-position: center;
+}
+
+.room-details {
+   flex: 1;
+   padding: 20px;
+}
+
+.room-name {
+   color: var(--main-color);
+   font-size: 24px;
+   margin-bottom: 10px;
+}
+
+.room-price {
+   color: var(--sub-color);
+   font-size: 18px;
+   margin-bottom: 10px;
+}
+
+.room-description {
+   font-size: 16px;
+   color: #888888;
+   margin-bottom: 20px;
+}
+
+.section-title {
+   color: var(--main-color);
+   font-size: 20px;
+   margin-bottom: 10px;
+}
+
+.facilities-list {
+   list-style-type: disc;
+   margin-left: 20px;
+   color: #888888;
+   font-size: 16px;
+   margin-bottom: 20px;
+}
+
+.book-btn {
+   display: block;
+   width: 100%;
+   padding: 10px 0;
+   font-size: 18px;
+   background-color: var(--main-color);
+   color: var(--sub-color);
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+
+.book-btn:hover {
+   background-color: var(--sub-color);
+   color: var(--main-color);
+}
  
 
