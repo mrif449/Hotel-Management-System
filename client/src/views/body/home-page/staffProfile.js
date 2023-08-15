@@ -1,15 +1,58 @@
 import React from "react";
 
-export default function StaffProfile() {
+// Example Profile data
+const profileData = [
+  {
+    id: 1,
+    name: "John Doe",
+    designation: "Software Engineer",
+    image: "images/staffPhoto.png"
+  },
+  {
+    id: 1,
+    name: "John Wimbly",
+    designation: "General Manager",
+image: "images/staffPhoto.png"
+  },
+  {
+    id: 1,
+    name: "John Doe",
+    designation: "Software Engineer",
+    image: "images/staffPhoto.png"
+  },
+  {
+    id: 1,
+    name: "John Wimbly",
+    designation: "General Manager",
+    image: "images/staffPhoto.png"
+  },
+  {
+    id: 1,
+    name: "John Wimbly",
+    designation: "General Manager",
+    image: "images/staffPhoto.png"
+  },
+
+];
+
+const StaffProfile = () => {
   return (
-    <div className="w-full sm:w-[250px] h-[380px] bg-green-300 border-2 flex flex-col justify-center items-center border-blue-200 rounded-md shadow-md px-4 py-6 cursor-pointer">
-      <img src={"images/staffPhoto.png"} alt="image" width={220} height={220} />
-      <h2 className="text-[18px] text-center font-medium mt-4 pt-4">
-        John Wimbly
-      </h2>
-      <p className="text-[#000000] text-[13px] font-bold text-center pt-4">
-        General Manager
-      </p>
+    <>
+    <div><h1 className="page-heading">Staff Profiles</h1></div>
+    <div className="profile-container">
+      {profileData.map(profile => (
+        <div className="card" key={profile.id}>
+          <div className="card-image" style={{ backgroundImage: `url(${profile.image})` }}>
+          </div>
+          <h2 className="card-name">{profile.name}</h2>
+          <p className="card-designation">{profile.designation}</p>
+        </div>
+      ))}
     </div>
+    </>
   );
-}
+};
+
+export default StaffProfile;
+
+
