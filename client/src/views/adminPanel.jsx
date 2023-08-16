@@ -45,7 +45,7 @@ const AdminPanel = () => {
         </table>
       </div>
       <div className="table-container">
-        <h2 className="table-heading">User Data</h2>
+        <h2 className="table-heading">Staff Data</h2>
         <table className="data-table">
           <thead>
             <tr>
