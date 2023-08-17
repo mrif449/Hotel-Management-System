@@ -1,10 +1,10 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Pagination, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const FeedbackComponent = () => {
 
-    const feedbacks = [
+    const feedbacks_data = [
         {
             name: "john deo",
             date: "2021-05-01",
@@ -36,6 +36,22 @@ const FeedbackComponent = () => {
             feedback: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque aliquid explicabo."
         },
     ]
+
+    const [feedbacks, setFeedbacks] = useState(feedbacks_data);
+
+    useEffect(() => {
+        // Fetch feedback data from the backend
+        fetch("/api/feedback-list")
+            .then((response) => response.json())
+            .then((data) => {
+                setFeedbacks(data);
+            })
+            .catch((error) => {
+                console.error("Error fetching feedbacks:", error);
+                // Set dummy feedbacks if the fetch fails
+                setFeedbacks(feedbacks_data);
+            });
+    }, []);
 
     const renderFeedbacks = () => {
         return feedbacks.map((feedback, index) => (
