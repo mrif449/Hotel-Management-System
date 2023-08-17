@@ -111,44 +111,11 @@ const logout = (req, res, next) => {
 // register
 const register = async (req, res, next) => {
     try {
-        const { name, email, password, phone, address } = req.body;
-        const image = req.file;
-        if (!image) {
-            throw createError(400, "Image file is required");
-        }
-        if (image.size > MAX_FILE_SIZE) {
-            throw createError(400, "Image file size should be less than 2 MB");
-        }
-        const imageBufferString = image.buffer.toString("base64");
+        const { name, email, password, phone, address } = req.body
         const userExists = await User.exists({ email: email });
         if (userExists) {
             throw createError(409, "This email already exists. Please log in")
         };
-        // create jwt
-        const token = createJSONWebToken({ name, email, password, phone, address, image: imageBufferString }, jwtActivationKey, "10m");
-        // prepare email
-        const emailData = {
-            email,
-            subject: "Account Activation Email",
-            html: `
-                <h2>Hello ${name}!</h2>
-                <p>Please click here to <a href="${clientURL}/api/users/activate/${token}" target="_blank">activate your account</a></p>
-            `
-        }
-
-        // send email with nodemailer
-        try {
-            // await EmailWithNodeMailer(emailData);
-        } catch (emailError) {
-            next(createError(500, "Failed to send verification email"));
-            return;
-        }
-
-        return successResponse(res, {
-            statusCode: 200,
-            message: `Please check ${email} for completing your registration process`,
-            payload: { token, imageBufferString },
-        });
     } catch (error) {
         next(error);
     };
@@ -160,15 +127,6 @@ const activateUserAccount = async (req, res, next) => {
         const token = req.body.token;
         if (!token) throw createError(404, "Token not found");
         try {
-            const decoded = jwt.verify(token, jwtActivationKey);
-            if (!token) throw createError(401, "User is not able to verify");
-            const userExists = await User.exists({ email: decoded.email });
-            if (userExists) {
-                throw createError(
-                    409, "User is already registered. Please sign in"
-                );
-            }
-            await User.create(decoded);
             return successResponse(res, {
                 statusCode: 201,
                 message: `User is registered successfully`,
