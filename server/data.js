@@ -148,4 +148,20 @@ const data = {
             pricePerDay: 4500,
         },
     ],
+    staffs:[
+        {
+            name: "Rahadul Islam",
+            gender: "male",
+            dob: "01/08/1996",
+            phone: "0171718965",
+            email: "rahadul.islam@gmail.com",
+            address: "Narayanganj, Bangladesh",
+            department: "Management",
+            employmentStatus: "full time",
+            dateOfJoining: "10/03/2009",
+            salary: "250000",
+            type: "Manager",
+            code: "0"
+        },
+    ]
 };
