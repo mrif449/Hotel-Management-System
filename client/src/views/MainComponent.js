@@ -5,11 +5,11 @@ import Footer from './footer/Footer';
 
 const MainComponent = () => {
 
-    const [User, setUser] = useState(undefined);
+    const [User, setUser] = useState(null);
 
     return (
         <div>
-            <Header />
+            <Header User={User} setUser={setUser}/>
             <Body User={User} setUser={setUser}/>
             <Footer />
         </div>
