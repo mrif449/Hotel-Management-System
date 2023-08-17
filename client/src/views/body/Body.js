@@ -12,7 +12,7 @@ const Body = ({User, setUser}) => {
     return (
         <div>
             <Routes>
-                <Route path="/" exact element={<HomePageComponent />} />
+                <Route path="/" exact element={<HomePageComponent User={User}/>} />
                 <Route path="/login" exact element={<Login setUser={setUser}/>} />
                 <Route path="/signup" exact element={<SignIn />} />
                 <Route path="/admin_panel" exact element={<AdminPanel />} />

@@ -7,7 +7,7 @@ import FeedbackComponent from "./feedback";
 import ReservationComponent from "./reservation";
 import FeedbackFormComponent from "./feedbackForm";
 
-const HomePageComponent = () => {
+const HomePageComponent = ({User}) => {
     return (
         <div>
             <HomeComponent />
@@ -16,7 +16,7 @@ const HomePageComponent = () => {
             <ReservationComponent />
             <GalleryComponent />
             <FeedbackComponent />
-            <FeedbackFormComponent />
+            <FeedbackFormComponent User={User}/>
         </div>
     )
 }
