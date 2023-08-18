@@ -13,7 +13,7 @@ const HomePageComponent = ({User}) => {
             <HomeComponent />
             <AboutComponent />
             <ServicesComponent />
-            <ReservationComponent />
+            <ReservationComponent UserId={User._id}/>
             <GalleryComponent />
             <FeedbackComponent />
             <FeedbackFormComponent User={User}/>

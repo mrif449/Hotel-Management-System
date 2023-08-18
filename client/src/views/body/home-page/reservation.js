@@ -1,9 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 
-const ReservationComponent = () => {
+const ReservationComponent = ({UserId}) => {
+
+  const [check_in, setCheckIn] = useState("");
+  const [check_out, setCheckOut] = useState("");
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your logic to handle form submission here
+    if (UserId) {
+      navigate(`/available_rooms`, {state: {check_in, check_out, UserId}});
+    }
+    else{
+      window.alert("Please login to continue");
+    }
   };
 
   return (
@@ -13,11 +24,11 @@ const ReservationComponent = () => {
         <div className="flex">
           <div className="box">
             <p>check in <span>*</span></p>
-            <input type="date" name="check_in" className="input" required />
+            <input type="date" name="check_in" className="input" required onChange={e => setCheckIn(e.target.value)}/>
           </div>
           <div className="box">
             <p>check out <span>*</span></p>
-            <input type="date" name="check_out" className="input" required />
+            <input type="date" name="check_out" className="input" required onChange={e => setCheckOut(e.target.value)}/>
           </div>
           <div className="box">
             <p>adults <span>*</span></p>

@@ -1,43 +1,89 @@
-import React from 'react';
-
-const roomData = [
-  {
-    roomType: 'Deluxe Suite',
-    price: '$200',
-    image: 'images/home-img-1.jpg'
-  },
-  {
-    roomType: 'Standard Room',
-    price: '$150',
-    image: 'images/gallery-img-2.webp'
-  },
-  {
-    roomType: 'Standard Room',
-    price: '$150',
-    image: 'images/home-img-1.jpg'
-  },
-  {
-    roomType: 'Standard Room',
-    price: '$150',
-    image: 'images/gallery-img-3.webp'
-  },
-
-];
+import React, {useState, useEffect} from 'react';
+import { useNavigate, useParams } from "react-router-dom";
 
 const RoomList = () => {
+
+  const roomData = [
+    {
+      _id: 1,
+      room_type: 'Deluxe Suite',
+      price_per_day: 200,
+      capacity: 4,
+    },
+    {
+      _id: 2,
+      room_type: 'Standard Room',
+      price_per_day: 150,
+      capacity: 2,
+    },
+    {
+      _id: 3,
+      room_type: 'Standard Room',
+      price_per_day: 150,
+      capacity: 2,
+    },
+    {
+      _id: 4,
+      room_type: 'Standard Room',
+      price_per_day: 150,
+      capacity: 3,
+    },
+  
+  ];
+
+  const [rooms, setRooms] = useState(roomData);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch('/api/available_rooms')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setRooms(data);
+      })
+      .catch(err => {
+        console.log(err)
+        setRooms(roomData);
+      });
+  }, [])
+    
+
+  const {check_in, check_out, UserId} = useParams();
+  console.log(check_in, check_out, UserId);
+
+  const handleClick = (room_id) => {
+    navigate(`/room_info/:${room_id}`, {state: {check_in, check_out, UserId, room_id}});
+  }
+
+  const handleBook = async (room_id) => {
+    try{
+      await fetch('/api/reservation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({room_id, check_in, check_out, UserId})
+      });
+    }
+    catch(err){
+      console.log(err);
+      window.alert("Something went wrong. Please try again later.");
+    }
+  }
+
   return (
     <section className="room-list">
       <h2 className="page-heading">Room List</h2>
       <div className="room-list-container">
-        {roomData.map((room, index) => (
+        {rooms.map((room, index) => (
           <div className="room-card" key={index}>
             <div
               className="room-image"
-              style={{ backgroundImage: `url(${room.image})` }}
+              style={{ backgroundImage: "images/gallery-img-2.webp", cursor: "pointer" }}
+              onClick={() => handleClick(room._id)}
             ></div>
             <h3 className="room-type">{room.roomType}</h3>
-            <p className="room-price">{room.price}</p>
-            <button className="book-button">Book Now</button>
+            <p className="room-price">{room.price_per_day}</p>
+            <p className="room-price">{room.capacity}</p>
+            <button className="book-button" onClick={() => handleBook(room._id)}>Book Now</button>
           </div>
         ))}
       </div>
