@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
-const ReservationComponent = ({UserId}) => {
+const ReservationComponent = ({User}) => {
 
   const [check_in, setCheckIn] = useState("");
   const [check_out, setCheckOut] = useState("");
@@ -9,8 +9,8 @@ const ReservationComponent = ({UserId}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (UserId) {
-      navigate(`/available_rooms`, {state: {check_in, check_out, UserId}});
+    if (User) {
+      navigate(`/available_rooms`, {state: {check_in, check_out, UserId: User._id}});
     }
     else{
       window.alert("Please login to continue");

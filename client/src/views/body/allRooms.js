@@ -52,7 +52,7 @@ const RoomList = () => {
   console.log(check_in, check_out, UserId);
 
   const handleClick = (room_id) => {
-    navigate(`/room_info/:${room_id}`, {state: {check_in, check_out, UserId, room_id}});
+    navigate(`/available_rooms/${room_id}`, {state: {check_in, check_out, UserId, room_id}});
   }
 
   const handleBook = async (room_id) => {
@@ -77,12 +77,14 @@ const RoomList = () => {
           <div className="room-card" key={index}>
             <div
               className="room-image"
-              style={{ backgroundImage: "images/gallery-img-2.webp", cursor: "pointer" }}
+              style={{ cursor: "pointer" }}
               onClick={() => handleClick(room._id)}
-            ></div>
-            <h3 className="room-type">{room.roomType}</h3>
-            <p className="room-price">{room.price_per_day}</p>
-            <p className="room-price">{room.capacity}</p>
+            >
+              <img className='room-image' src="images/gallery-img-2.webp" alt="room" />
+            </div>
+            <h3 className="room-type">Room Type: {room.room_type}</h3>
+            <p className="room-price">Price Per Night: ${room.price_per_day}</p>
+            <p className="room-price">Capacity: {room.capacity}</p>
             <button className="book-button" onClick={() => handleBook(room._id)}>Book Now</button>
           </div>
         ))}

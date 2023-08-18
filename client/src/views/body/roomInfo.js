@@ -15,7 +15,7 @@ const RoomInfo = () => {
     console.log(check_in, check_out, UserId, room_id);
 
     useEffect(() => {
-        fetch(`/api/room/:${room_id}`)
+        fetch(`/api/available_rooms/:${room_id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -44,7 +44,7 @@ const RoomInfo = () => {
     return (
         <div className="room-info-container">
             <div className="room-image">
-            <img src="images/gallery-img-2.webp" alt="room" />
+                <img src="images/gallery-img-2.webp" alt="room" />
             </div>
             <div className="room-details">
                 <h2 className="room-name">{room.room_type}</h2>
