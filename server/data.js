@@ -163,5 +163,63 @@ const data = {
             type: "Manager",
             code: "0"
         },
-    ]
+        {
+            name: "Sultan Ahmed",
+            gender: "Male",
+            dob: "19/07/2000",
+            phone: "01451432587",
+            email: "sultan.ahmed@gmail.com",
+            address: "Mirpur, Dhaka",
+            department: "Front desk",
+            employmentStatus: "Part-time",
+            dateOfJoining: "12/01/2019",
+            salary: "20000",
+            type: "frontDeskStaff",
+            code: "1"
+        },
+        {
+            name: "Halima Akter",
+            gender: "Female",
+            dob: "19/07/1993",
+            phone: "01458569587",
+            email: "halima.akter@gmail.com",
+            address: "Uttara, Dhaka",
+            department: "Front desk",
+            employmentStatus: "Full-time",
+            dateOfJoining: "19/08/2012",
+            salary: "25000",
+            type: "frontDeskStaff",
+            code: "1"
+        },
+        
+        {
+            name: "Abdul Khaleque",
+            gender: "Male",
+            dob: "26/03/1990",
+            phone: "01362547785",
+            email: "abdul.khaleque@gmail.com",
+            address: "Banani, Dhaka",
+            department: "Front desk",
+            employmentStatus: "Full-time",
+            dateOfJoining: "03/06/2010",
+            salary: "26000",
+            type: "frontDeskStaff",
+            code: "1"
+        },
+         {
+            name: "Anika Ferdous",
+            gender: "Female",
+            dob: "15/09/2002",
+            phone: "01362253998",
+            email: "anika.ferdous@gmail.com",
+            address: "Kakrail, Dhaka",
+            department: "Front desk",
+            employmentStatus: "Part-time",
+            dateOfJoining: "01/08/2022",
+            salary: "18000",
+            type: "frontDeskStaff",
+            code: "1"
+        },
+    ],
+    
 };
