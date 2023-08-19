@@ -84,9 +84,11 @@ const login = async (req, res, next) => {
                     httpOnly: true,
                     signed: true
                 })
-                //Set logged in user local identifier
-                res.locals.loggedInUser = userObject
-                //TODO: Redirect to profile page or home page
+                return successResponse(res, {
+                    statusCode: 200,
+                    message: "User login successful",
+                    payload: { userObject },
+                });
             }
             else{
                 throw createError("LogInError: Invalid password")
@@ -111,11 +113,18 @@ const logout = (req, res, next) => {
 // register
 const register = async (req, res, next) => {
     try {
-        const { name, email, password, phone, address } = req.body
+        const { name, email, password, phone } = req.body
         const userExists = await User.exists({ email: email });
         if (userExists) {
             throw createError(409, "This email already exists. Please log in")
         };
+       const newUser = new User({
+        name: name,
+        email:email,
+        password: password,
+        phone:phone,
+        user_type: "Guest"
+       })
     } catch (error) {
         next(error);
     };

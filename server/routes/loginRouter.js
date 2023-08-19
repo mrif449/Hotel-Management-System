@@ -1,6 +1,8 @@
 //External Imports
 const express = require('express')
 const Reservation = require('../models/model');
+const userRouter = require('./userRouter'); // The correct path to your userRouter file
+
 
 //Internal Imports
 const {getLoginPage, login, logout, register, activateUserAccount, getUsers} = require('../controllers/loginController')
@@ -19,7 +21,7 @@ router.post('/', logInValidators, validationResultHandler, login)
 router.delete('/', logout)
 
 // Register
-router.get("/register",register);
+router.post("/register",register);
 
 // activate user account
 router.post("/activate", activateUserAccount);
@@ -27,17 +29,10 @@ router.post("/activate", activateUserAccount);
 // get all users
 router.get("/users", getUsers);
 
-//delete user by ID
-userRouter.delete("/:id", isLoggedIn, deleteUserById);
 
 //activate user account
-userRouter.post("/activate", isLoggedOut, activateUserAccount);
+userRouter.post("/activate", activateUserAccount);
 
-//ban user by id
-userRouter.put("/ban-user/:id", isLoggedIn, isAdmin, handleBanUserById);
-
-//unban user by id
-userRouter.put("/unban-user/:id", isLoggedIn, isAdmin, handleUnbanUserById);
 
 
 

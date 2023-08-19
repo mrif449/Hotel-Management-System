@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Pagination, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const FeedbackComponent = () => {
 
-    const feedbacks = [
+    const feedbacks_data = [
         {
             name: "john deo",
             date: "2021-05-01",
@@ -37,11 +37,33 @@ const FeedbackComponent = () => {
         },
     ]
 
+    const [feedbacks, setFeedbacks] = useState(feedbacks_data);
+
+    useEffect(() => {
+        // Fetch feedback data from the backend
+        fetch("/login/feedback-list")
+            .then(res => {
+                if (res.ok) {
+                    return res.json()
+                }
+                throw new Error(`HTTP error! Status: ${res.status}`);
+            })
+            .then((data) => {
+                console.log(data)
+                setFeedbacks(feedbacks_data);
+            })
+            .catch((error) => {
+                console.error("Error fetching feedbacks:", error);
+                // Set dummy feedbacks if the fetch fails
+                setFeedbacks(feedbacks_data);
+            });
+    }, []);
+
     const renderFeedbacks = () => {
         return feedbacks.map((feedback, index) => (
             <SwiperSlide className="swiper-slide box" key={index}>
                 <h3>{feedback.name}</h3>
-                <p style={{"padding":"10px", "color":"white", "font-size":"10px"}}><i>{feedback.date}</i></p>
+                <p style={{ "padding": "10px", "color": "white", "font-size": "10px" }}><i>{feedback.date}</i></p>
                 <p>{feedback.feedback}</p>
             </SwiperSlide>
         ))

@@ -12,7 +12,7 @@ const Login = ({ setUser }) => {
         const loginData = { email, password };
 
         try {
-            const response = await fetch("/api/auth/login", {
+            const response = await fetch("/login", {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(loginData)
@@ -20,15 +20,15 @@ const Login = ({ setUser }) => {
 
             if (response.status === 200) {
                 const { payload } = await response.json();
-                const user = payload.userWithoutPassword;
+                const user = payload.userObject;
                 setUser(user);
 
                 //Redirecting Manager to admin panel, staff to staff profile and guest to home page
-                if (user.staff_type === "Manager") {
+                if (user.userType === "Manager") {
                     navigate("/admin_panel");
-                } else if (user.staff_type === "Staff") {
+                } else if (user.userType === "Staff") {
                     navigate("/staff_profile");
-                } else if (user.staff_type === "Guest") {
+                } else if (user.userType === "Guest") {
                     navigate("/");
                 }
             } else {

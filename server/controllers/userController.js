@@ -7,6 +7,7 @@ const { createJSONWebToken } = require("../helper/jsonwebtoken");
 const { jwtActivationKey, clientURL } = require("../secret");
 const jwt = require("jsonwebtoken");
 const { MAX_FILE_SIZE } = require("../config");
+const { Staff } = require("../models/model");
 
 
 const getUsers = async (req, res, next) => {
@@ -62,6 +63,23 @@ const getUserById = async (req, res, next) => {
         next(error);
     };
 };
+
+const getStaffById = async (req, res, next) => {
+
+    try {
+        const id = req.params.id;
+        const options = { password: 0 };
+        const staff = await findWithId(Staff, id, options);
+        return successResponse(res, {
+            statusCode: 200,
+            message: "Staff has returned successfully",
+            payload: { staff },
+        })
+    } catch (error) {
+        next(error);
+    };
+};
+
 
 const deleteUserById = async (req, res, next) => {
     try {
@@ -205,4 +223,4 @@ const handleUnbanUserById = async (req, res, next) => {
     };
 };
 
-module.exports = { getUsers, getUserById, deleteUserById, processRegister, activateUserAccount, updateUserById, handleBanUserById, handleUnbanUserById };
+module.exports = { getUsers, getStaffById ,getUserById, deleteUserById, processRegister, activateUserAccount, updateUserById, handleBanUserById, handleUnbanUserById };

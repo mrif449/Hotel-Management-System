@@ -1,8 +1,8 @@
 const express = require("express");
 const seedRouter = express.Router();
-const { seedUser } = require("../controllers/seedController"); //TODO: create seedController.js
+const {  seedStaff } = require("../controllers/seedController"); 
 
 
-seedRouter.get("/users", seedUser);
+seedRouter.get("/users", seedStaff);
 
 module.exports = seedRouter;

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // User Model
 const UserSchema = new mongoose.Schema({
-    username: {
+    name: {
         type: String,
         required: true
     },
@@ -10,7 +10,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    phone_number: {
+    phone: {
         type: String,
         required: true
     },
@@ -20,7 +20,7 @@ const UserSchema = new mongoose.Schema({
     },
     user_type: {
         type: String,
-        enum: ['Guest', 'Staff'],
+        enum: ['Guest', 'Staff', "Manager"],
         required: true
     },
     is_enabled: {
@@ -57,24 +57,33 @@ const StaffSchema = new mongoose.Schema({
     },
     full_name: { 
         type: String, 
-        required: true 
+        //required: true 
     },
     email: { 
         type: String, 
-        required: true 
+        //required: true 
     },
-    phone_number: { 
+    phone: { 
         type: String, 
-        required: true 
+        //required: true 
     },
-    NID_number: { 
-        type: String, 
-        required: true 
+    department: {
+        type: String,
+        //required: true,
     },
     staff_type: { 
         type: String, 
-        required: true 
+        //required: true 
     },
+    dateOfJoining:{
+        type: Date
+    },
+    salary:{
+        type: Number
+    },
+    code:{
+        type: Number
+    }
 });
 
 const Staff = mongoose.model('Staff', StaffSchema);

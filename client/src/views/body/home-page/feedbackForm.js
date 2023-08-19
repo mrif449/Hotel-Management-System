@@ -14,7 +14,7 @@ const FeedbackFormComponent = ({User}) => {
         
         const feedbackData = { user_id: User._id, feedback, datetime: new Date() };
         try{
-            const response = await fetch("/feedback", {
+            const response = await fetch("/login/feedback", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(feedbackData)

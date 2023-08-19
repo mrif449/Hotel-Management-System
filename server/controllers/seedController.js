@@ -1,23 +1,12 @@
-const User = require("../models/model");
+const {Staff }= require("../models/model");
 const data = require("../data");
-const seedUser = async (req, res, next) => {
+
+const seedStaff = async (req, res, next) => {
     try {
         // deleting all existing users
-        await User.deleteMany({});
+        await Staff.deleteMany({});
         // inserting new users
-        const users = await User.insertMany(data.users);
-        // successful response
-        return res.status(201).json(users);
-    } catch (error) {
-        next(error);
-    }
-};
-const seedStaff = async (res, next) => {
-    try {
-        // deleting all existing users
-        await seedStaff.deleteMany({});
-        // inserting new users
-        const staffs = await seedStaff.insertMany(data.staffs);
+        const staffs = await Staff.insertMany(data.staffs);
         // successful response
         return res.status(201).json(staffs);
     } catch (error) {
@@ -25,4 +14,4 @@ const seedStaff = async (res, next) => {
     }
 };
 
-module.exports = { seedUser, seedStaff };
+module.exports = { seedStaff };

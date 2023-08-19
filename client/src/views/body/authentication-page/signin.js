@@ -2,9 +2,9 @@ import React, {useState} from "react";
 
 const SignIn = () => {
     
-    const [username, setUsername] = useState("");
+    const [name, setUsername] = useState("");
     const [email, setEmail] = useState("");
-    const [phone_number, setPhoneNumber] = useState("");
+    const [phone, setPhoneNumber] = useState("");
     const [password, setPassword] = useState("");
     const [confirm_password, setConfirmPassword] = useState("");
 
@@ -16,10 +16,10 @@ const SignIn = () => {
             return;
         }
 
-        const signInData = { username, email, phone_number, password };
+        const signInData = { name, email, phone, password };
 
         try {
-            const response = await fetch("/api/register", {
+            const response = await fetch("/login/register", {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(signInData)
